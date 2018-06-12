@@ -1,10 +1,4 @@
 <!DOCTYPE html>
-<!--
-    This example demonstrates the interoperability of Leaflet.draw with
-    leaflet-draw-toolbar by including toolbars from both libraries on the same
-    page. The drawing toolbar is from Leaflet.draw, while the editing toolbar
-    is from Leaflet.toolbar / leaflet-draw-toolbar.
--->
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="node_modules/leaflet/dist/leaflet.css" />
@@ -29,9 +23,20 @@
 	<style>
 		.leaflet-toolbar-icon .fa { color: #000; }
 		.leaflet-color-swatch { background-color: #fff; }
-	</style>	
+	</style>
+    <script src="L.tileLayer.zoomify.js"></script>
 	<script>
-		var map = L.map('map').setView([41.7896,-87.5996], 15),
+var map = L.map('map', { 
+    crs: L.CRS.Simple, //Set a flat CRS (Coordinate Reference System) projection as we are projecting an image.
+    zoom: 4,
+    center: [-28.5, 66.0],
+    
+}),
+     
+ zoomifyLayer = L.tileLayer.zoomify('https://hreikin.co.uk/interactive-campaign-map/interactive-campaign-map-start/{g}/{z}-{x}-{y}.jpg', {
+    width: 8318,    // MUST be defined.
+    height: 3640,   // MUST be defined.
+ }).addTo(map),
 			drawnItems = new L.FeatureGroup().addTo(map),
 			editActions = [
                 L.Toolbar2.EditAction.Popup.Edit,
@@ -49,9 +54,6 @@
 					]})
 				})
 			];
-		L.tileLayer("http://tile.stamen.com/terrain/{z}/{x}/{y}.jpg", {
-			attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.'
-		}).addTo(map);
         new L.Control.Draw({
 			position: 'topleft',
 		}).addTo(map);
