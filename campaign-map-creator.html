@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="leaflet-sidebar.css" />
 	<link rel="stylesheet" type="text/css" href="node_modules/leaflet-draw/dist/leaflet.draw.css" />
 	<link rel="stylesheet" type="text/css" href="node_modules/leaflet-toolbar/dist/leaflet.toolbar.css" />
+	<!--<link rel="stylesheet" type="text/css" href="node_modules/leaflet-draw-toolbar/dist/leaflet.draw-toolbar.css" />-->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"/>
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>	
@@ -21,6 +22,7 @@
 	<script src="node_modules/leaflet-draw/dist/leaflet.draw-src.js"></script>
     <script src="node_modules/leaflet-draw-toolbar/dist/leaflet.draw-toolbar.js"></script>
 	<script src="ColorPicker.js"></script>
+    <script src="leaflet-sidebar.js"></script>
 	<style>
 		html, body, #map {
             margin: 0;
@@ -45,9 +47,9 @@
         <div class="sidebar-tabs">
             <ul role="tablist">
                 <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
-                <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
-                <li class="disabled"><a href="#messages" role="tab"><i class="fa fa-envelope"></i></a></li>
-                <li><a href="https://github.com/Turbo87/sidebar-v2" role="tab" target="_blank"><i class="fa fa-github"></i></a></li>
+                <li><a href="#players" role="tab"><i class="fa fa-user"></i></a></li>
+                <li><a href="#stages" role="tab"><i class="fa fa-envelope"></i></a></li>
+                <li><a href="#battles" role="tab"><i class="fa fa-github"></i></a></li>
             </ul>
 
             <ul role="tablist">
@@ -74,12 +76,16 @@
                 <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
             </div>
 
-            <div class="sidebar-pane" id="profile">
-                <h1 class="sidebar-header">Profile<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+            <div class="sidebar-pane" id="players">
+                <h1 class="sidebar-header">Players<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
             </div>
 
-            <div class="sidebar-pane" id="messages">
-                <h1 class="sidebar-header">Messages<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+            <div class="sidebar-pane" id="stages">
+                <h1 class="sidebar-header">Stages<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+            </div>
+            
+            <div class="sidebar-pane" id="battles">
+                <h1 class="sidebar-header">Battles<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
             </div>
 
             <div class="sidebar-pane" id="settings">
@@ -92,7 +98,7 @@
 		.leaflet-toolbar-icon .fa { color: #000; }
 		.leaflet-color-swatch { background-color: #fff; }
 	</style>
-    <script src="leaflet-sidebar.js"></script>
+
     <script src="L.tileLayer.zoomify.js"></script>
 	<script src="campaign-map-creator.js"></script>
 </body>
